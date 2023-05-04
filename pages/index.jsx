@@ -32,12 +32,17 @@ export default function Home({ courses }) {
                   padding="lg"
                   radius="md"
                   withBorder
-                  style={{ paddingBottom: "6px", cursor: "pointer" }}
+                  style={{
+                    paddingBottom: "6px",
+                    cursor: "pointer",
+                    border: "2px solid #33CFBD",
+                    boxShadow: "0px 2px 20px #BBBBBB",
+                  }}
                 >
+                  <div style={{ fontSize: "15px", fontWeight:"600", color: "#036459" }}>{course.name}</div>
                   <div className="d-flex align-items-center p-2">
                     <Image radius={100} src={"/" + course.image} height={130} width={130} alt="Инкубатор талантов" />
                     <div style={{ paddingLeft: "20px" }}>
-                      <div style={{ fontSize: "14px", color: "#036459" }}>{course.name}</div>
                       <div style={{ fontSize: "14px", color: "#036459", paddingLeft: "10px" }}>
                         <span style={{ color: "#1FBEAC" }}>{tasks_ready}</span> выполнено
                       </div>
@@ -55,21 +60,6 @@ export default function Home({ courses }) {
                     size="sm"
                     value={(tasks_ready / tasks) * 100}
                   />
-                  {/* <Card.Section style={{ position: "relative" }}>
-                    <Image src={"/" + course.image} height={125} alt="Инкубатор талантов" />
-                  </Card.Section>
-                  <Group position="apart">
-                    <Text weight={500}>{course.name}</Text>
-                  </Group>
-                  <div style={{ textAlign: "end", fontSize: "16px", color: "#1FBEAC" }}>
-                    {Math.round((tasks_ready / tasks) * 100)}%
-                  </div>
-                  <Progress
-                    style={{ marginTop: "auto" }}
-                    color="#1FBEAC"
-                    size="sm"
-                    value={(tasks_ready / tasks) * 100}
-                  /> */}
                 </Card>
               </Link>
             );
