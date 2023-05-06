@@ -106,10 +106,10 @@ export const AddUser = ({ opened, setOpened, pushUser }) => {
       <form onSubmit={saveUser}>
         <LoadingOverlay visible={loading} />
         <div className="d-flex justify-content-end mb-5">
-          <Button color="green" type="submit" style={{ marginRight: "20px" }}>
+          <button className="greenButton" color="green" type="submit" style={{ marginRight: "20px" }}>
             Добавить
-          </Button>
-          <Button
+          </button>
+          <button className="redButton"
             variant="light"
             color="dark"
             onClick={() => {
@@ -117,7 +117,7 @@ export const AddUser = ({ opened, setOpened, pushUser }) => {
             }}
           >
             Отменить
-          </Button>
+          </button>
         </div>
         <Row>
           <Col>

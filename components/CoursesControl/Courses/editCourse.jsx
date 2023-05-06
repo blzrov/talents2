@@ -168,6 +168,7 @@ export const EditCourse = ({ opened, setOpened, updateCoursesList, editCourseId 
     const body = new FormData();
     body.append("name", e.target.name.value);
     body.append("description", description);
+    console.log(selectedUsers)
     if (image && image.path) {
       body.append("image", image, `course_${nanoid()}`);
     }
