@@ -48,7 +48,13 @@ export default function Days({ course, days, tasks, tasks_ready }) {
               padding="lg"
               radius="md"
               withBorder
-              style={{ textAlign: "center", paddingBottom: "40px", marginBottom: "40px", border:"2px solid #1FBEAC", boxShadow:"0px 2px 20px #BBBBBB" }}
+              style={{
+                textAlign: "center",
+                paddingBottom: "40px",
+                marginBottom: "40px",
+                border: "2px solid #1FBEAC",
+                boxShadow: "0px 2px 20px #BBBBBB",
+              }}
             >
               <div style={{ margin: "0 auto", width: "145px", marginBottom: "20px" }}>
                 {course.image && (
@@ -57,15 +63,18 @@ export default function Days({ course, days, tasks, tasks_ready }) {
               </div>
               <div style={{ fontSize: "15px", fontWeight: "600", color: "#036459" }}>{course.name}</div>
             </Card>
-            <div style={{ fontSize: "20px", fontWeight: "600", color: "#036459", marginBottom: "16px" }}>
-              Мой прогресс
-            </div>
+            <div style={{ fontSize: "20px", fontWeight: "600", color: "#036459", marginBottom: "16px" }}>Прогресс</div>
             <Card
               shadow="sm"
               padding="lg"
               radius="md"
               withBorder
-              style={{ textAlign: "center", paddingBottom: "40px" }}
+              style={{
+                textAlign: "center",
+                paddingBottom: "40px",
+                border: "2px solid #1FBEAC",
+                boxShadow: "0px 2px 20px #BBBBBB",
+              }}
             >
               <div className="d-flex align-items-center justify-content-center">
                 <RingProgress
@@ -91,7 +100,18 @@ export default function Days({ course, days, tasks, tasks_ready }) {
                     if (!days[index - 1] || days[index - 1].show_day) {
                       return (
                         <Link passHref href={`/courses/${course.id}/days/${day.id}`}>
-                          <Card p="lg" shadow="sm" padding="lg" radius="md" withBorder style={{ cursor: "pointer",border:"2px solid #F9B312", boxShadow:"0px 2px 20px #BBBBBB" }}>
+                          <Card
+                            p="lg"
+                            shadow="sm"
+                            padding="lg"
+                            radius="md"
+                            withBorder
+                            style={{
+                              cursor: "pointer",
+                              border: "2px solid #F9B312",
+                              boxShadow: "0px 2px 20px #BBBBBB",
+                            }}
+                          >
                             <div style={{ height: "165px" }}>
                               <Card.Section>
                                 {day.image && (
@@ -114,7 +134,13 @@ export default function Days({ course, days, tasks, tasks_ready }) {
                 </SimpleGrid>
               </Tabs.Tab>
               <Tabs.Tab label="О курсе">
-                <Card shadow="sm" padding="lg" radius="md" withBorder>
+                <Card
+                  shadow="sm"
+                  padding="lg"
+                  radius="md"
+                  withBorder
+                  style={{ border: "2px solid #1FBEAC", boxShadow: "0px 2px 20px #BBBBBB" }}
+                >
                   <Text
                     size="sm"
                     weight={500}

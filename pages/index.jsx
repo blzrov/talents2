@@ -7,7 +7,19 @@ import { withIronSessionSsr } from "iron-session/next";
 
 import axios from "/utils/rest";
 import Container from "react-bootstrap/Container";
-import { SimpleGrid, Text, Space, Image, Card, Group, Button, useMantineTheme, Loader, Progress } from "@mantine/core";
+import {
+  SimpleGrid,
+  Text,
+  Space,
+  Image,
+  Card,
+  Group,
+  RingProgress,
+  Button,
+  useMantineTheme,
+  Loader,
+  Progress,
+} from "@mantine/core";
 
 export default function Home({ courses }) {
   const theme = useMantineTheme();
@@ -39,10 +51,18 @@ export default function Home({ courses }) {
                     boxShadow: "0px 2px 20px #BBBBBB",
                   }}
                 >
-                  <div style={{ fontSize: "15px", fontWeight:"600", color: "#036459" }}>{course.name}</div>
+                  <div style={{ fontSize: "15px", fontWeight: "600", color: "#036459" }}>{course.name}</div>
                   <div className="d-flex align-items-center p-2">
                     <Image radius={100} src={"/" + course.image} height={130} width={130} alt="Инкубатор талантов" />
                     <div style={{ paddingLeft: "20px" }}>
+                      <RingProgress
+                        label={
+                          <Text size="xs" align="center">
+                            {Math.round((tasks_ready / tasks) * 100)}%
+                          </Text>
+                        }
+                        sections={[{ value: (tasks_ready / tasks) * 100, color: "#1FBEAC" }]}
+                      />
                       <div style={{ fontSize: "14px", color: "#036459", paddingLeft: "10px" }}>
                         <span style={{ color: "#1FBEAC" }}>{tasks_ready}</span> выполнено
                       </div>
@@ -51,15 +71,6 @@ export default function Home({ courses }) {
                       </div>
                     </div>
                   </div>
-                  <div style={{ textAlign: "end", fontSize: "16px", color: "#1FBEAC" }}>
-                    {Math.round((tasks_ready / tasks) * 100)}%
-                  </div>
-                  <Progress
-                    style={{ marginTop: "auto" }}
-                    color="#1FBEAC"
-                    size="sm"
-                    value={(tasks_ready / tasks) * 100}
-                  />
                 </Card>
               </Link>
             );

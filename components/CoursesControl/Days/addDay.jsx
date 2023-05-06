@@ -128,7 +128,8 @@ export const AddDay = ({ opened, setOpened, pushDay, courseId }) => {
     <div className="mb-5">
       <div style={{ color: "#036459", fontSize: "20px", fontWeight: "600" }}>Материалы &gt; Добавление дня</div>{" "}
       <Space h="sm" />
-      <div style={{ textAlign: "end" }}>
+      <form onSubmit={saveDay}>
+            <div style={{ textAlign: "end" }}>
         <button
           type="submit"
           style={{
@@ -155,7 +156,6 @@ export const AddDay = ({ opened, setOpened, pushDay, courseId }) => {
           Отменить
         </button>
       </div>
-      <form onSubmit={saveDay}>
         <Row>
           <Col md={4}>
             <Card shadow="sm" padding="lg" radius="md" withBorder>

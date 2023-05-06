@@ -48,9 +48,9 @@ export const TasksCheck = () => {
   return (
     <Container>
       <Space h="xl" />
-      <div style={{ color: "#036459", fontSize: "24px", fontWeight: "600" }}>Проверка заданий</div>
+      <div style={{ color: "#036459", fontSize: "24px", fontWeight: "600" }}>Задания</div>
       <Space h="xl" />
-      <Row>
+      {/* <Row>
         <Col md={4}>
           <NativeSelect
             data={["Не выбрано"].concat(
@@ -77,14 +77,13 @@ export const TasksCheck = () => {
             variant="filled"
           />
         </Col>
-      </Row>
+      </Row> */}
       <Table verticalSpacing="sm" striped highlightOnHover>
         <thead>
           <tr>
             <th>День</th>
             <th>Задание</th>
-            <th>Талант</th>
-            <th>Email таланта</th>
+            <th>Фамилия, имя</th>
             <th>Действия</th>
           </tr>
         </thead>
@@ -100,41 +99,31 @@ export const TasksCheck = () => {
               .filter((e) => e.day.name == filter.day || filter.day == "Не выбрано" || !filter.day)
               .map((task, i) => {
                 return (
-                  <tr key={task.task.id}>
+                  <tr
+                    key={task.task.id}
+                    style={{ border: "2px solid #33CFBD", borderRadius: "8px", background: "white" }}
+                  >
                     <td>{task.day.name}</td>
                     <td>{task.task.name}</td>
                     <td>{`${task.user.name} ${task.user.surname}`}</td>
-                    <td>{task.user.email}</td>
                     <td>
-                        {/* <Button
-                          variant="outline"
-                          color="orange"
-                          leftIcon={<MessageCircle />}
-                          onClick={() => {
-                            setTask(task);
-                            setAnswerModalOpened(true);
-                          }}
-                        >
-                          Просмотреть
-                        </Button> */}
-                        <button
-                          style={{
-                            fontSize: "16px",
-                            color: "#1FBEAC",
-                            fontWeight: "600",
-                            marginRight: "35px",
-                            border: "none",
-                            backgroundColor: "white",
-                          }}
-                          onClick={() => {
-                            setTask(task);
-                            setAnswerModalOpened(true);
-                          }}
-                          // color="green"
-                          type="submit"
-                        >
-                          Проверить
-                        </button>
+                      <button
+                        style={{
+                          fontSize: "16px",
+                          color: "#1FBEAC",
+                          fontWeight: "600",
+                          marginRight: "35px",
+                          border: "none",
+                          backgroundColor: "white",
+                        }}
+                        onClick={() => {
+                          setTask(task);
+                          setAnswerModalOpened(true);
+                        }}
+                        type="submit"
+                      >
+                        Проверить
+                      </button>
                     </td>
                   </tr>
                 );
