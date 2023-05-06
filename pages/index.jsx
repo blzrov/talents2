@@ -56,6 +56,8 @@ export default function Home({ courses }) {
                     <Image radius={100} src={"/" + course.image} height={130} width={130} alt="Инкубатор талантов" />
                     <div style={{ paddingLeft: "20px" }}>
                       <RingProgress
+                     size={70}
+      thickness={6}
                         label={
                           <Text size="xs" align="center">
                             {Math.round((tasks_ready / tasks) * 100)}%
